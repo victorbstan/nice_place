@@ -5,14 +5,16 @@ jQuery.fn.nice_place = function(focus_el) {
   // the placed element (this) should be nearby, but not obscure;
   // while the placed element should try to be fully visible,
   // by never falling out of the right or left visible window area
-  var $f_el = $(focus_el);
-  var f_pos = $f_el.position();
-  var f_ofs = $f_el.offset();
-  var f_w = $f_el.outerWidth();
-  var f_h = $f_el.outerHeight();
+  var $f_el = $(focus_el),
+      f_pos = $f_el.position(),
+      f_ofs = $f_el.offset(),
+        f_w = $f_el.outerWidth(),
+        f_h = $f_el.outerHeight();
+
   // window
   var w_w = $(window).width();
   var w_h = $(window).height();
+
   // this
   var $that = $(this);
 
@@ -29,20 +31,20 @@ jQuery.fn.nice_place = function(focus_el) {
   if (this.outerWidth() > w_w) {
     this.outerWidth(w_w);
     this.css({
-      "border-left":0,
-      "border-right":0,
-      "margin-left":0,
-      "margin-right":0
+      "border-left":  0,
+      "border-right": 0,
+      "margin-left":  0,
+      "margin-right": 0
     });
   }
 
   if (this.outerHeight() > w_h) {
     this.outerHeight(w_h);
     this.css({
-      "border-top":0,
-      "border-bottom":0,
-      "margin-top":0,
-      "margin-bottom":0
+      "border-top":    0,
+      "border-bottom": 0,
+      "margin-top":    0,
+      "margin-bottom": 0
     });
   }
 
@@ -88,7 +90,6 @@ jQuery.fn.nice_place = function(focus_el) {
       if (
         this.offset().left <= 0
       ) {
-        console.log($f_el.offset().left - this.outerWidth());
         this.offset({
           "left":f_ofs.left
         });
